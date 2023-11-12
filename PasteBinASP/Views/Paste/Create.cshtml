@@ -1,0 +1,37 @@
+﻿@using PasteBinASP.DataProviders.Impl;
+@model PasteCreateModel
+
+<div>
+    <form asp-controller="Paste" asp-action="Create" method="post">
+        <div class="main-textarea-div">
+            <div style="display:inline-block; width: 70%;">
+                <label asp-for="Text" style="display: block">New Paste</label>
+                <textarea asp-for="Text" class="textarea-main "></textarea>
+            </div>
+        </div>
+
+        <div>
+            <div class="row">
+                <div class="col-2">
+                    <label class="vertical-align-middle" asp-for="LiveTimeInSeconds">Paste Expiration:</label>
+                </div>
+                <div class="col-2">
+                    <select class="form-select" asp-for="LiveTimeInSeconds">
+                        <option value="@(60*10)" selected>10 минут</option>
+                        <option value="@(60*60)">1 Час</option>
+                        <option value="@(60*60*24)">1 День</option>
+                        <option value="@(60*60*24*7)">1 Неделя</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-2">
+                    <input class="btn btn-primary" type="submit" value="Create New Paste"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

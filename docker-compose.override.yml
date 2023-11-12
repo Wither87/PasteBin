@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  pastebinasp:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=https://+:44392;http://+:80
+      - ASPNETCORE_HTTPS_PORT=44392
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+    
+  
+    

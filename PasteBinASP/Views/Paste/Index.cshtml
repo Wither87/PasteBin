@@ -1,0 +1,23 @@
+﻿@using System.Net;
+@model PasteViewModel
+
+@if(Model.StatusCode == HttpStatusCode.OK)
+{   
+    <div>
+        <div style="width: 500px; height:400px;">
+            @Model.Text
+        </div>
+    </div>
+}
+else if (Model.StatusCode == HttpStatusCode.NotFound)
+{
+    <div>
+        <h4>@Model.StatusCode @((int)Model.StatusCode)</h4>
+    </div>
+    <div>
+        <span>
+            @Model.ErrorMessage
+        </span>
+    </div>
+}
+
